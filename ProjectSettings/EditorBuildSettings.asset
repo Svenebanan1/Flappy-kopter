@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 14992a196d4822d4f9a8db84cab571d2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Caspers movement scene.unity
     guid: c5b2ea779a87c6a45920ee425d4eb497
   - enabled: 1
