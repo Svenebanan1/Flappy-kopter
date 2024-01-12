@@ -12,11 +12,13 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text scoreText;
 
      public int Score = 0;
+
    
 
     private void Awake()
     {
         instance = this;
+        
     }
 
     // Start is called before the first frame update
