@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class nr : MonoBehaviour
@@ -12,20 +13,15 @@ public class nr : MonoBehaviour
 
     float quitTimer = 0;
 
-    bool powerupone = false;
+    ScoreManager SM;
 
-    int Score = 0;
-
-    [SerializeField]
-    GameObject textgameObject;
-    TextMeshProUGUI textComponent;
-
-    string ScoreText;
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody2D = GetComponent<Rigidbody2D>();
+        SM = FindObjectOfType<ScoreManager>();
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -52,9 +48,9 @@ public class nr : MonoBehaviour
 
             gameObject.transform.localScale = new Vector2(1, 1);
         }
-        ScoreText = "Score: " + Score;
-        textComponent.text = ScoreText;
-                    //Vi kan göra en bool 
+
+       
+                   
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -71,8 +67,8 @@ public class nr : MonoBehaviour
         if (hitmat != null)
         {
             hitmat.TakeDamage();
-            Score += 1;
-           
+            SM.Score += 1;
+          
         }
        
         
