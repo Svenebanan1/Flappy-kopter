@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
-   
+
     public int MenuScene;
     void Update()
     {
@@ -18,7 +17,8 @@ public class PauseMenu : MonoBehaviour
             if (GameIsPaused)
             {
                 Resume();
-            }else
+            }
+            else
             {
                 Pause();
             }
@@ -51,6 +51,5 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
-
 
 }
