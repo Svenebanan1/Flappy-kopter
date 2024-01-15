@@ -16,6 +16,7 @@ public class nr : MonoBehaviour
 
     private bool dubblepoints = false;
 
+    int hp = 1;
 
     ScoreManager SM;
 
@@ -27,6 +28,19 @@ public class nr : MonoBehaviour
 
     }
 
+    public void TakeDamage()
+    {
+         hp -= 1;
+        if (hp == 0)
+        {
+            Destroy(gameObject);
+          
+        }
+    }
+
+   
+       
+    
 
     // Update is called once per frame
     void Update()
@@ -107,6 +121,7 @@ public class nr : MonoBehaviour
 
         }
 
+      
     }
 }
 
