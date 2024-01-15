@@ -4,11 +4,17 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class nr : MonoBehaviour
 {
+    [SerializeField]
+    GameObject DeathObject;
+    
+    public int MenuScene;
+
     Rigidbody2D myRigidBody2D;
 
     float quitTimer = 0;
@@ -87,7 +93,7 @@ public class nr : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-
+        //Power-UP #1 Halv i storlek
         GameObject otherGameObject = collision.gameObject;
         powerup hitpowerup = otherGameObject.GetComponent<powerup>();
         if (hitpowerup != null)
@@ -95,6 +101,7 @@ public class nr : MonoBehaviour
             hitpowerup.TakeDamage();
             quitTimer = 5;
         }
+       //Power-Up #2 Dubbel score
         GameObject otherGameObject2 = collision.gameObject;
         powerup2 hitpowerup2 = otherGameObject2.GetComponent<powerup2>();
         if (hitpowerup2 != null)
@@ -102,6 +109,7 @@ public class nr : MonoBehaviour
             hitpowerup2.TakeDamage();
             quitTimer2 = 5;
         }
+        
         GameObject otherGameObject1 = collision.gameObject;
         mat hitmat = otherGameObject1.GetComponent<mat>();
         if (hitmat != null)
@@ -119,9 +127,11 @@ public class nr : MonoBehaviour
 
             }
 
-        }
-
-      
+        }      
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        SceneManager.LoadScene(MenuScene);
     }
 }
 
