@@ -1,27 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Mat_Spawner : MonoBehaviour
 {
-    [SerializeField]
-    GameObject Mat;
-
+    [SerializeField] GameObject Mat;
+    [SerializeField] float Range;
+    [SerializeField] float Spawn_Time;
     private float elapsedtime;
-    private void Update()
+
+    void Update()
     {
         elapsedtime += Time.deltaTime;
-
-        if (elapsedtime > 4)
+        if (elapsedtime > Spawn_Time)
         {
-            SpawnObject();
-
+            GameObject mat = Instantiate(Mat);
+            mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range,Range));
             elapsedtime = 0;
         }
-    }
-    private void SpawnObject()
-    {
-        GameObject mat = Instantiate(Mat);
-        mat.transform.position = new Vector2(transform.position.x, Random.Range(-4, 4));
     }
 }

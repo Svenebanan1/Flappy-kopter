@@ -5,27 +5,19 @@ using UnityEngine;
 
 public class Obstacle_Spawner : MonoBehaviour
 {
-    [SerializeField]
-    GameObject Obstacle;
-
+    [SerializeField] GameObject Obstacle;
+    [SerializeField] float Range;
+    [SerializeField] float Spawn_Time;
     private float elapsedtime;
 
-    // Update is called once per frame
     void Update()
     {
         elapsedtime += Time.deltaTime;
-
-        if (elapsedtime > 2)
+        if (elapsedtime > Spawn_Time)
         {
-            SpawnObject();
-
+            GameObject obstacle = Instantiate(Obstacle);
+            obstacle.transform.position = new Vector2(transform.position.x, Random.Range(-Range,Range));
             elapsedtime = 0;
         }
-    }
-
-    private void SpawnObject()
-    {
-        GameObject obstacle = Instantiate(Obstacle);
-        obstacle.transform.position = new Vector2(transform.position.x, Random.Range(-3, 3));
     }
 }
