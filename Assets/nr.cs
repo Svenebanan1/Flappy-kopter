@@ -20,6 +20,10 @@ public class nr : MonoBehaviour
 
     ScoreManager SM;
 
+   public GameObject DeathScreen;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +37,12 @@ public class nr : MonoBehaviour
          hp -= 1;
         if (hp == 0)
         {
-            Destroy(gameObject);
-          
+
+            
+            DeathScreen.SetActive(true);
+            
         }
+
     }
 
    
@@ -121,7 +128,7 @@ public class nr : MonoBehaviour
 
         }
 
-      
+   
     }
 }
 
