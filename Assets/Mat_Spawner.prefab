@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5436961917691356702
+--- !u!1 &9013510783967548147
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4377499558310690332}
-  - component: {fileID: 1580373878290638878}
+  - component: {fileID: 3632668782851278677}
+  - component: {fileID: 3042792378755938930}
   m_Layer: 0
-  m_Name: Obstacle_Spawner
+  m_Name: Mat_Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4377499558310690332
+--- !u!4 &3632668782851278677
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5436961917691356702}
+  m_GameObject: {fileID: 9013510783967548147}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1580373878290638878
+--- !u!114 &3042792378755938930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5436961917691356702}
+  m_GameObject: {fileID: 9013510783967548147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4c883eb3b6dde242aef8362d7cb2a7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f625b7ca3cbd5546852eaa66891fb06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle: {fileID: 8407179589158544444, guid: 46f6165a162300a419eb797c5dbb2ea1, type: 3}
-  Range: 3
-  Spawn_Time: 2
+  Mat: {fileID: 1891490170527180296, guid: 46187a0c6d41ccb4b8a854cee79723e9, type: 3}
+  Range: 4
+  Spawn_Time: 4
