@@ -7,10 +7,11 @@ public class ljud : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private AudioSource jump;
+    [SerializeField] private AudioSource helikopter;
 
     private void Start()
     {
-       
+        helikopter.Play();
     }
 
     // Update is called once per frame
