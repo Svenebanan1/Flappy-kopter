@@ -8,10 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 14992a196d4822d4f9a8db84cab571d2
-  - enabled: 0
-    path: Assets/Scenes/Caspers movement scene.unity
-    guid: c5b2ea779a87c6a45920ee425d4eb497
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 61c8019f36a249b498f9e439db2744c3
   - enabled: 1
     path: Assets/Scenes/Movement and powerupmat.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Viggos scene.unity
+    guid: 6eb71db0864058044acbfea14771d769
+  - enabled: 1
+    path: "Assets/Scenes/Obstacles test(\xE4ndra inte).unity"
+    guid: 22911f5e3c56f2041ab37a2adb3fed01
   m_configObjects: {}
