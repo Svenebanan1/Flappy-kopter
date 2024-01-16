@@ -5,8 +5,7 @@ using UnityEngine;
 public class Obstacle_Parent : MonoBehaviour
 {
 
-    [SerializeField]
-    private float Bound;
+    [SerializeField] private float Bound;
     private void Update()
     {
         if (transform.position.x < Bound)
@@ -14,10 +13,8 @@ public class Obstacle_Parent : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void FixedUpdate()
     { 
-        //myRigidBody2D.velocity = new Vector2(-5, 0);
         transform.position += new Vector3(-5,0) * Time.deltaTime;
 
     }
