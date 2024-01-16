@@ -12,7 +12,7 @@ public class nr : MonoBehaviour
 {
     [SerializeField]
     GameObject DeathObject;
-    
+
     public int MenuScene;
 
     Rigidbody2D myRigidBody2D;
@@ -40,7 +40,7 @@ public class nr : MonoBehaviour
         if (hp == 0)
         {
             Destroy(gameObject);
-          
+            
         }
     }
 
