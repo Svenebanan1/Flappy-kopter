@@ -12,4 +12,15 @@ public class PlayButton : MonoBehaviour
     {
         SceneManager.LoadScene(gameStartScene);
     }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene(gameStartScene);
+        }
+        if (Input.GetKey(KeyCode.Return))
+        {
+            SceneManager.LoadScene(gameStartScene);
+        }
+    }
 }

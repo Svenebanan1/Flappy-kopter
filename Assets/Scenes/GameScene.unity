@@ -1337,7 +1337,7 @@ GameObject:
   - component: {fileID: 1276054991}
   - component: {fileID: 1276054990}
   m_Layer: 5
-  m_Name: 'Text '
+  m_Name: Score text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1390,8 +1390,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 53
+  m_fontSizeBase: 53
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1456,7 +1456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -307, y: 170.10004}
+  m_AnchoredPosition: {x: -369, y: 214}
   m_SizeDelta: {x: 200, y: 56.3123}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1616593746
@@ -1607,7 +1607,7 @@ GameObject:
   - component: {fileID: 1790156188}
   - component: {fileID: 1790156187}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Score Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2043,7 +2043,7 @@ GameObject:
   - component: {fileID: 2080870778}
   - component: {fileID: 2080870782}
   m_Layer: 5
-  m_Name: UIcanvas
+  m_Name: Paus canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
