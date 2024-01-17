@@ -7,7 +7,7 @@ MonoImporter:
   - Powerup1: {fileID: 7817997867091045556, guid: b9a6e6fbb2ead48499b71376c65a2187, type: 3}
   - Powerup2: {fileID: 1683644435204642581, guid: 3f2e5478ec22d424381051bff792eeaf, type: 3}
   - MatObject: {fileID: 1891490170527180296, guid: 46187a0c6d41ccb4b8a854cee79723e9, type: 3}
-  - MatSpriteRenderer: {instanceID: 0}
+  - MatSpriteRenderer: {fileID: 2220045104299135157, guid: 46187a0c6d41ccb4b8a854cee79723e9, type: 3}
   - MatSprite: {fileID: 21300000, guid: 8d86cb823deace844a6ba4b50955d8f6, type: 3}
   - Mat2Sprite: {fileID: 21300000, guid: e89c73b1f7778714a8a2a1b07e7739cd, type: 3}
   - Mat3Sprite: {fileID: 21300000, guid: 15d4a504e7716db45991f836f370d4b0, type: 3}
