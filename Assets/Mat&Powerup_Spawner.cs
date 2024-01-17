@@ -7,9 +7,11 @@ public class Mat_Spawner : MonoBehaviour
 {
     [SerializeField] GameObject Powerup1;
     [SerializeField] GameObject Powerup2;
-    [SerializeField] GameObject Mat1;
-    [SerializeField] GameObject Mat2;
-    [SerializeField] GameObject Mat3;
+    [SerializeField] GameObject MatObject;
+    public SpriteRenderer MatSpriteRenderer;
+    public Sprite MatSprite;
+    public Sprite Mat2Sprite;
+    public Sprite Mat3Sprite;
     [SerializeField] float Range;
     [SerializeField] float Spawn_Time;
     private float elapsedtime;
@@ -26,24 +28,21 @@ public class Mat_Spawner : MonoBehaviour
             if (Spawn_Mat == true)
             {
                 randommat = Random.value;
-                if (randommat > 0.6f)
+                GameObject mat = Instantiate(MatObject);
+                mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));;
+                if (randommat > 2/3f)
                 {
-                     GameObject mat = Instantiate(Mat1);
-                    mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
-                    elapsedtime = 0;
+                    MatSpriteRenderer.sprite = Mat2Sprite; 
                 }
-                else if (randommat > 0.3f)
+                else if (randommat > 1/3f)
                 {
-                    GameObject mat = Instantiate(Mat2);
-                    mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
-                    elapsedtime = 0;
+                    MatSpriteRenderer.sprite = Mat3Sprite;
                 }
                 else
                 {
-                    GameObject mat = Instantiate(Mat3);
-                    mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
-                    elapsedtime = 0;
+                    MatSpriteRenderer.sprite = MatSprite;
                 }
+                elapsedtime = 0;
             }
             else
             {
@@ -52,14 +51,13 @@ public class Mat_Spawner : MonoBehaviour
                 {
                     GameObject powerup = Instantiate(Powerup1);
                     powerup.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
-                    elapsedtime = 0;
                 }
                 else
                 {
                     GameObject powerup = Instantiate(Powerup2);
                     powerup.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
-                    elapsedtime = 0;
                 }
+                elapsedtime = 0;
             }
         }
     }
