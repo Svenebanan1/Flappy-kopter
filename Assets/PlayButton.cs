@@ -7,10 +7,16 @@ public class PlayButton : MonoBehaviour
 {
    
     public int gameStartScene;
+    [SerializeField] public AudioSource lobbyMusic;
 
     public void StartGame()
     {
         SceneManager.LoadScene(gameStartScene);
+    }
+
+    public void Start()
+    {
+        lobbyMusic.Play();
     }
     private void Update()
     {

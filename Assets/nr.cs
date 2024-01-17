@@ -12,6 +12,9 @@ public class nr : MonoBehaviour
 {
     [SerializeField]
     GameObject DeathObject;
+    [SerializeField] public AudioSource bakgrundsMusik;
+    [SerializeField] public AudioSource helikopterLjud;
+    [SerializeField] public AudioSource jump;
 
     public int MenuScene;
 
@@ -33,18 +36,20 @@ public class nr : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        helikopterLjud.Play();
+        bakgrundsMusik.Play();
         myRigidBody2D = GetComponent<Rigidbody2D>();
         SM = FindObjectOfType<ScoreManager>();
-
     }
 
     public void TakeDamage()
     {
-         hp -= 1;
+
+        hp -= 1;
         if (hp == 0)
         {
-            Destroy(gameObject);
             
+            Destroy(gameObject);
         }
     }
 
@@ -57,6 +62,7 @@ public class nr : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            jump.Play();
             myRigidBody2D.velocity = new Vector2(0, 10);
 
         }
@@ -138,6 +144,8 @@ public class nr : MonoBehaviour
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        helikopterLjud.Stop();
+        bakgrundsMusik.Stop();
     }
 }
 
