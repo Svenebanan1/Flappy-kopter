@@ -11,6 +11,7 @@ MonoImporter:
   - MatSprite: {fileID: 21300000, guid: 8d86cb823deace844a6ba4b50955d8f6, type: 3}
   - Mat2Sprite: {fileID: 21300000, guid: e89c73b1f7778714a8a2a1b07e7739cd, type: 3}
   - Mat3Sprite: {fileID: 21300000, guid: 15d4a504e7716db45991f836f370d4b0, type: 3}
+  - Mat4Sprite: {fileID: 21300000, guid: 145c076d8a21ba54b86ad66ccb19429b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
