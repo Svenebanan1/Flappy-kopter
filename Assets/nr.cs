@@ -17,6 +17,10 @@ public class nr : MonoBehaviour
 
     Rigidbody2D myRigidBody2D;
 
+    public static bool GameIsPaused = false;
+
+    public GameObject DeathSceneUI;
+
     float quitTimer = 0;
     float quitTimer2 = 0;
 
@@ -131,7 +135,9 @@ public class nr : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        SceneManager.LoadScene(MenuScene);
+        DeathSceneUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
     }
 }
 
