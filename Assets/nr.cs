@@ -15,7 +15,7 @@ public class nr : MonoBehaviour
     [SerializeField] public AudioSource bakgrundsMusik;
     [SerializeField] public AudioSource helikopterLjud;
     [SerializeField] public AudioSource jump;
-
+    
     public int MenuScene;
 
     Rigidbody2D myRigidBody2D;
@@ -35,6 +35,7 @@ public class nr : MonoBehaviour
 
     ScoreManager SM;
 
+    Animator Explotion;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,16 +43,17 @@ public class nr : MonoBehaviour
         bakgrundsMusik.Play();
         myRigidBody2D = GetComponent<Rigidbody2D>();
         SM = FindObjectOfType<ScoreManager>();
+        Explotion = GetComponent<Animator>();
     }
 
     public void TakeDamage()
     {
-
+        //Används inte
         hp -= 1;
         if (hp == 0)
         {
-            
             Destroy(gameObject);
+            
         }
     }
 
@@ -89,10 +91,6 @@ public class nr : MonoBehaviour
             gameObject.transform.localScale = new Vector2(1, 1);
         }
 
-
-
-
-
         if (quitTimer2 > 0)
         {
             quitTimer2 -= Time.deltaTime;
@@ -101,10 +99,10 @@ public class nr : MonoBehaviour
 
 
         }
-
-
-
-
+        if(Time.timeScale == 0f)
+        {
+            jump.Stop();
+        }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -146,12 +144,21 @@ public class nr : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+
+        Explotion.Play("explotion");
+
+        helikopterLjud.Stop();
+        bakgrundsMusik.Stop();
+       
+        Invoke("GameOver", 0.5f);
+    }
+
+    void GameOver()
+    {
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        death = true;
-        helikopterLjud.Stop();
-        bakgrundsMusik.Stop();
     }
-}
+}   
 
