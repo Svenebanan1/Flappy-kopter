@@ -47,6 +47,7 @@ public class VolumeSettings : MonoBehaviour
         MusicSlider.value = PlayerPrefs.GetFloat("musicVolume");
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
         LobbyMusicSlider.value = PlayerPrefs.GetFloat("lobbymusicVolume");
+
         SetMusicVolume();
         SetSFXVolume();
         SetLobbyMusicVolume();
