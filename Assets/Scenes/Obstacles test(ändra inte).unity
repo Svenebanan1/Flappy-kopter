@@ -148,6 +148,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 8d86cb823deace844a6ba4b50955d8f6, type: 3}
     - target: {fileID: 3042792378755938930, guid: 343f570492d706847be60369768f6aad, type: 3}
+      propertyPath: Mat1Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8d86cb823deace844a6ba4b50955d8f6, type: 3}
+    - target: {fileID: 3042792378755938930, guid: 343f570492d706847be60369768f6aad, type: 3}
       propertyPath: Mat2Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e89c73b1f7778714a8a2a1b07e7739cd, type: 3}
@@ -159,6 +163,10 @@ PrefabInstance:
       propertyPath: Mat4Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 145c076d8a21ba54b86ad66ccb19429b, type: 3}
+    - target: {fileID: 3042792378755938930, guid: 343f570492d706847be60369768f6aad, type: 3}
+      propertyPath: Mat5Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb7511892642d3542af32913a0637dbf, type: 3}
     - target: {fileID: 3042792378755938930, guid: 343f570492d706847be60369768f6aad, type: 3}
       propertyPath: MatSpriteRenderer
       value: 
