@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Mat_Spawner : MonoBehaviour
@@ -8,13 +9,17 @@ public class Mat_Spawner : MonoBehaviour
     [SerializeField] GameObject Powerup1;
     [SerializeField] GameObject Powerup2;
     [SerializeField] GameObject MatObject;
+
     public SpriteRenderer MatSpriteRenderer;
-    public Sprite MatSprite;
+    public Sprite Mat1Sprite;
     public Sprite Mat2Sprite;
     public Sprite Mat3Sprite;
     public Sprite Mat4Sprite;
-    [SerializeField] float Range;
-    [SerializeField] float Spawn_Time;
+    public Sprite Mat5Sprite;
+
+    public float Range;
+    public float Spawn_Time;
+
     private float elapsedtime;
     private bool Spawn_Mat;
     private bool randompowerup;
@@ -31,21 +36,25 @@ public class Mat_Spawner : MonoBehaviour
                 randommat = Random.value;
                 GameObject mat = Instantiate(MatObject);
                 mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));;
-                if (randommat > 0.75f)
+                if (randommat > 0.8f)
                 {
-                    MatSpriteRenderer.sprite = MatSprite; 
+                    MatSpriteRenderer.sprite = Mat1Sprite; 
                 }
-                else if (randommat > 0.5f)
+                else if (randommat > 0.6f)
                 {
                     MatSpriteRenderer.sprite = Mat2Sprite;
                 }
-                else if (randommat > 0.25f)
+                else if (randommat > 0.4f)
                 {
                     MatSpriteRenderer.sprite = Mat3Sprite;
                 }
-                else
+                else if(randommat > 0.2f)
                 {
                     MatSpriteRenderer.sprite = Mat4Sprite;
+                }
+                else
+                {
+                    MatSpriteRenderer.sprite = Mat5Sprite;
                 }
                 elapsedtime = 0;
             }
