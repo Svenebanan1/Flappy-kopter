@@ -22,6 +22,8 @@ public class nr : MonoBehaviour
 
     public static bool GameIsPaused = false;
 
+    public bool death = false;
+
     public GameObject DeathSceneUI;
 
     float quitTimer = 0;
@@ -62,7 +64,10 @@ public class nr : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jump.Play();
+            if (death == false) 
+            {
+                jump.Play();
+            }
             myRigidBody2D.velocity = new Vector2(0, 10);
 
         }
@@ -144,6 +149,7 @@ public class nr : MonoBehaviour
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        death = true;
         helikopterLjud.Stop();
         bakgrundsMusik.Stop();
     }
