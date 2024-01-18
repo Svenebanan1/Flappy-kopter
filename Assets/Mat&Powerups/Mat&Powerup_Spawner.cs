@@ -12,6 +12,7 @@ public class Mat_Spawner : MonoBehaviour
     public Sprite MatSprite;
     public Sprite Mat2Sprite;
     public Sprite Mat3Sprite;
+    public Sprite Mat4Sprite;
     [SerializeField] float Range;
     [SerializeField] float Spawn_Time;
     private float elapsedtime;
@@ -30,17 +31,21 @@ public class Mat_Spawner : MonoBehaviour
                 randommat = Random.value;
                 GameObject mat = Instantiate(MatObject);
                 mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));;
-                if (randommat > 2/3f)
+                if (randommat > 0.75f)
                 {
-                    MatSpriteRenderer.sprite = Mat2Sprite; 
+                    MatSpriteRenderer.sprite = MatSprite; 
                 }
-                else if (randommat > 1/3f)
+                else if (randommat > 0.5f)
+                {
+                    MatSpriteRenderer.sprite = Mat2Sprite;
+                }
+                else if (randommat > 0.25f)
                 {
                     MatSpriteRenderer.sprite = Mat3Sprite;
                 }
                 else
                 {
-                    MatSpriteRenderer.sprite = MatSprite;
+                    MatSpriteRenderer.sprite = Mat4Sprite;
                 }
                 elapsedtime = 0;
             }
