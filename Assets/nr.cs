@@ -15,7 +15,8 @@ public class nr : MonoBehaviour
     [SerializeField] public AudioSource bakgrundsMusik;
     [SerializeField] public AudioSource helikopterLjud;
     [SerializeField] public AudioSource jump;
-    
+    [SerializeField] public AudioSource explosion;
+
     public int MenuScene;
 
     Rigidbody2D myRigidBody2D;
@@ -148,6 +149,7 @@ public class nr : MonoBehaviour
 
         Explotion.Play("explotion");
 
+        explosion.Play();
         helikopterLjud.Stop();
         bakgrundsMusik.Stop();
        
