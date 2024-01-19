@@ -3503,7 +3503,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 007640923d8923b42902ea5d39b52977, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6b757bc66040caa47941b1dd25f233ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3987,7 +3987,9 @@ MonoBehaviour:
   bakgrundsMusik: {fileID: 1978528420}
   helikopterLjud: {fileID: 1978528419}
   jump: {fileID: 1978528421}
+  explosion: {fileID: 1978528421}
   MenuScene: 0
+  CutScene: 2
   death: 0
   DeathSceneUI: {fileID: 287385485}
 --- !u!50 &1978528417

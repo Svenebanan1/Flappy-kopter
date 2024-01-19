@@ -19,6 +19,8 @@ public class nr : MonoBehaviour
 
     public int MenuScene;
 
+    public int CutScene;
+
     Rigidbody2D myRigidBody2D;
 
     public static bool GameIsPaused = false;
@@ -104,6 +106,10 @@ public class nr : MonoBehaviour
         {
             jump.Stop();
         }
+        if(transform.position.y <= -10)
+        {
+            SceneManager.LoadScene(MenuScene);
+        }
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -140,8 +146,12 @@ public class nr : MonoBehaviour
                 SM.Score += 1;
 
             }
-
-        }      
+            
+        }   
+        if(SM.Score >= 30)
+        {
+            SceneManager.LoadScene(CutScene);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
