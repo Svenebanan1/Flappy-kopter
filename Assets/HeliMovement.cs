@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
-public class nr : MonoBehaviour
+public class HeliMovement : MonoBehaviour
 {
     [SerializeField]
     GameObject DeathObject;
