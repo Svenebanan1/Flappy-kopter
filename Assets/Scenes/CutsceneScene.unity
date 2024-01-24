@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5027fbc1adfb443998e11c3c150750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Menu: 3
+  STARVINGCHILDREN: 3
 --- !u!4 &1473709510
 Transform:
   m_ObjectHideFlags: 0

@@ -108,7 +108,7 @@ public class nr : MonoBehaviour
         }
         if(transform.position.y <= -10)
         {
-            SceneManager.LoadScene(MenuScene);
+            GameOver();
         }
     }
     void OnTriggerEnter2D(Collider2D collision)
@@ -148,7 +148,7 @@ public class nr : MonoBehaviour
             }
             
         }   
-        if(SM.Score >= 30)
+        if(SM.Score >= 15)
         {
             SceneManager.LoadScene(CutScene);
         }
