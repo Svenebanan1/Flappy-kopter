@@ -12,8 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/GameScene.unity
     guid: 61c8019f36a249b498f9e439db2744c3
   - enabled: 1
+    path: Assets/Scenes/CutsceneScene.unity
+    guid: 73f17fdefc5622942bc1786b663863a0
+  - enabled: 1
+    path: Assets/Scenes/StarvingChildren.unity
+    guid: 1f9a742db3c525541bc4375f4ee9a4fd
+  - enabled: 1
     path: Assets/Scenes/Movement and powerupmat.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 911e78d84c1d2ee498f5c887fe778029
   - enabled: 1
     path: Assets/Scenes/Viggos scene.unity
     guid: 6eb71db0864058044acbfea14771d769
