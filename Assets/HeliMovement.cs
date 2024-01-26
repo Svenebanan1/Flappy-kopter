@@ -93,7 +93,7 @@ public class HeliMovement : MonoBehaviour
 
             gameObject.transform.localScale = new Vector2(1, 1);
         }
-
+        //Stänga av dubbel poäng power-up efter en stund
         if (quitTimer2 > 0)
         {
             quitTimer2 -= Time.deltaTime;
@@ -102,10 +102,12 @@ public class HeliMovement : MonoBehaviour
 
 
         }
+        //pausa hoppljud när man dör
         if(Time.timeScale == 0f)
         {
             jump.Stop();
         }
+        //Om man hamnar av skärmen så dör man
         if(transform.position.y <= -10)
         {
             GameOver();
@@ -155,15 +157,15 @@ public class HeliMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
 
         Explotion.Play("explotion");
-
         explosion.Play();
         helikopterLjud.Stop();
         bakgrundsMusik.Stop();
-       
         Invoke("GameOver", 0.5f);
+        myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+
+
     }
 
     void GameOver()
