@@ -21,8 +21,6 @@ public class Mat_Spawner : MonoBehaviour
 
     private float elapsedtime;
     private bool Spawn_Mat;
-    private bool randompowerup;
-    private float randommat;
 
     void Update()
     {
@@ -32,46 +30,57 @@ public class Mat_Spawner : MonoBehaviour
             Spawn_Mat = Random.value < 0.9f;
             if (Spawn_Mat == true)
             {
-                randommat = Random.value;
-                GameObject mat = Instantiate(MatObject);
-                mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));;
-                if (randommat > 0.8f)
-                {
-                    MatSpriteRenderer.sprite = Mat1Sprite; 
-                }
-                else if (randommat > 0.6f)
-                {
-                    MatSpriteRenderer.sprite = Mat2Sprite;
-                }
-                else if (randommat > 0.4f)
-                {
-                    MatSpriteRenderer.sprite = Mat3Sprite;
-                }
-                else if(randommat > 0.2f)
-                {
-                    MatSpriteRenderer.sprite = Mat4Sprite;
-                }
-                else
-                {
-                    MatSpriteRenderer.sprite = Mat5Sprite;
-                }
-                elapsedtime = 0;
+                SpawnMat();
             }
             else
             {
-                randompowerup = Random.value > 0.5f;
-                if (randompowerup == true)
-                {
-                    GameObject powerup = Instantiate(Powerup1);
-                    powerup.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
-                }
-                else
-                {
-                    GameObject powerup = Instantiate(Powerup2);
-                    powerup.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
-                }
-                elapsedtime = 0;
+                SpawnPowerup();
             }
         }
     }
+
+    void SpawnMat()
+    {
+        float randommat = Random.value;
+        GameObject mat = Instantiate(MatObject);
+        mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range)); ;
+        if (randommat > 0.8f)
+        {
+            MatSpriteRenderer.sprite = Mat1Sprite;
+        }
+        else if (randommat > 0.6f)
+        {
+            MatSpriteRenderer.sprite = Mat2Sprite;
+        }
+        else if (randommat > 0.4f)
+        {
+            MatSpriteRenderer.sprite = Mat3Sprite;
+        }
+        else if (randommat > 0.2f)
+        {
+            MatSpriteRenderer.sprite = Mat4Sprite;
+        }
+        else
+        {
+            MatSpriteRenderer.sprite = Mat5Sprite;
+        }
+        elapsedtime = 0;
+    }
+
+    void SpawnPowerup() 
+    {
+        bool randompowerup = Random.value > 0.5f;
+        if (randompowerup == true)
+        {
+            GameObject powerup = Instantiate(Powerup1);
+            powerup.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
+        }
+        else
+        {
+            GameObject powerup = Instantiate(Powerup2);
+            powerup.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
+        }
+        elapsedtime = 0;
+    }
+
 }
