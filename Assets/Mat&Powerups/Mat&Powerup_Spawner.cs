@@ -36,14 +36,19 @@ public class Mat_Spawner : MonoBehaviour
             {
                 SpawnPowerup();
             }
+            // 90% chans att skripten spawnar mat och 10% chans att den spawnar en powerup
+
+            elapsedtime = 0;
         }
     }
 
     void SpawnMat()
     {
-        float randommat = Random.value;
         GameObject mat = Instantiate(MatObject);
-        mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range)); ;
+        mat.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
+        // Instantiatar mat objectet och sätter dens y position till +/- Range.
+
+        float randommat = Random.value;
         if (randommat > 0.8f)
         {
             MatSpriteRenderer.sprite = Mat1Sprite;
@@ -64,7 +69,7 @@ public class Mat_Spawner : MonoBehaviour
         {
             MatSpriteRenderer.sprite = Mat5Sprite;
         }
-        elapsedtime = 0;
+        // Mat objectets sprite har en 20% chans att ändras till respektive mat sprite.
     }
 
     void SpawnPowerup() 
@@ -80,7 +85,7 @@ public class Mat_Spawner : MonoBehaviour
             GameObject powerup = Instantiate(Powerup2);
             powerup.transform.position = new Vector2(transform.position.x, Random.Range(-Range, Range));
         }
-        elapsedtime = 0;
+        // Instantaiatar Powerup1 eller Powerup2 med en 50/50 chans
     }
 
 }

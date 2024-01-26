@@ -18,6 +18,8 @@ public class Obstacle_Spawner : MonoBehaviour
             GameObject obstacle = Instantiate(Obstacle);
             obstacle.transform.position = new Vector2(transform.position.x, Random.Range(-Range,Range));
             elapsedtime = 0;
+
+            // Instantiatar en obstacle och ger den y positionen +/- Range
         }
     }
 }
