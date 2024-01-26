@@ -28,7 +28,7 @@ public class DÖD : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject otherGameObject3 = collision.gameObject;
-        nr hitnr = otherGameObject3.GetComponent<nr>();
+        HeliMovement hitnr = otherGameObject3.GetComponent<HeliMovement>();
         if (hitnr != null)
         {
             hitnr.TakeDamage();
