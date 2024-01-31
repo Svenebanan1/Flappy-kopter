@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
-
+ 
 public class HeliMovement : MonoBehaviour
 {
     [SerializeField]
@@ -160,8 +160,17 @@ public class HeliMovement : MonoBehaviour
 
             }
             
-        }   
-        if(SM.Score >= 15)
+        }
+        if (dubblepoints == false)
+        {
+            if (hitmat != null)
+            {
+                hitmat.TakeDamage();
+                SM.Score += 0;
+
+            }
+        }
+            if (SM.Score >= 15)
         {
             SceneManager.LoadScene(CutScene);
         }
