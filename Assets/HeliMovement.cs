@@ -102,8 +102,18 @@ public class HeliMovement : MonoBehaviour
 
 
         }
+       
+        
+        if (quitTimer2 <= 0)
+        {
+           
+
+            dubblepoints = false;
+
+
+        }
         //pausa hoppljud när man dör
-        if(Time.timeScale == 0f)
+        if (Time.timeScale == 0f)
         {
             jump.Stop();
         }
@@ -129,7 +139,7 @@ public class HeliMovement : MonoBehaviour
         if (hitpowerup2 != null)
         {
             hitpowerup2.TakeDamage();
-            quitTimer2 = 5;
+            quitTimer2 = 10;
         }
         
         GameObject otherGameObject1 = collision.gameObject;
