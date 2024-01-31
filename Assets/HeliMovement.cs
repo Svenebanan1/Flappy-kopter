@@ -96,9 +96,10 @@ public class HeliMovement : MonoBehaviour
         //Stänga av dubbel poäng power-up efter en stund
         if (quitTimer2 > 0)
         {
-            quitTimer2 -= Time.deltaTime;
+           dubblepoints = true; 
+           quitTimer2 -= Time.deltaTime;
 
-            dubblepoints = true;
+            
 
 
         }
