@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayButton : MonoBehaviour
 {
-   
+    public int Score;
     public int gameStartScene;
     [SerializeField] public AudioSource lobbyMusic;
 
@@ -23,6 +24,12 @@ public class PlayButton : MonoBehaviour
         if (Input.GetKey(KeyCode.Return))
         {
             SceneManager.LoadScene(gameStartScene);
+            ResetScore();
         }
+    }
+
+    public void ResetScore()
+    {
+        Score = 0;
     }
 }

@@ -122,7 +122,12 @@ public class HeliMovement : MonoBehaviour
         //Om man hamnar av skärmen så dör man
         if(transform.position.y <= -10)
         {
-            GameOver();
+            Explotion.Play("explotion");
+            explosion.Play();
+            helikopterLjud.Stop();
+            bakgrundsMusik.Stop();
+            Invoke("GameOver", 0.5f);
+            myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
         }
     }
     void OnTriggerEnter2D(Collider2D collision)

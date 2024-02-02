@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DeliverFood : MonoBehaviour
+public class AmountOfFood_Delivery : MonoBehaviour
 {
-    
-
+    [SerializeField] private Slider AmountOfFoodSlider;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +15,14 @@ public class DeliverFood : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 
-   
+
+    public void SetAmount()
+    {
+        float Amount = AmountOfFoodSlider.value;
 
 
-
+    }
 }

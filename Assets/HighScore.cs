@@ -22,4 +22,5 @@ public class CollectedFood : MonoBehaviour
 
         scoreText.text = "Collected Food: " + gs.HighScore;
     }
+    
 }

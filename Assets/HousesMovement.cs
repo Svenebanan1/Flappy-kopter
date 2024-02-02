@@ -5,6 +5,8 @@ using UnityEngine;
 public class HousesMovement : MonoBehaviour
 {
     Rigidbody2D MyRigidBody;
+
+    
     // Start is called before the first frame update
     void Start()
     {
