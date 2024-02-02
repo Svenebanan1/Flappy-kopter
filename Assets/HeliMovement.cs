@@ -36,8 +36,9 @@ public class HeliMovement : MonoBehaviour
 
     int hp = 1;
 
-    ScoreManager SM;
+    
 
+    GameStatus SM;
     Animator Explotion;
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,7 @@ public class HeliMovement : MonoBehaviour
         helikopterLjud.Play();
         bakgrundsMusik.Play();
         myRigidBody2D = GetComponent<Rigidbody2D>();
-        SM = FindObjectOfType<ScoreManager>();
+        SM = FindObjectOfType<GameStatus>();
         Explotion = GetComponent<Animator>();
     }
 
@@ -142,13 +143,13 @@ public class HeliMovement : MonoBehaviour
             hitpowerup2.TakeDamage();
             quitTimer2 = 10;
         }
-        
+        //Collect Food script
         GameObject otherGameObject1 = collision.gameObject;
         mat hitmat = otherGameObject1.GetComponent<mat>();
         if (hitmat != null)
         {
             hitmat.TakeDamage();
-            SM.Score += 1;
+            GameStatus.instance.AddScore();
 
         }
         if (dubblepoints == true)
@@ -170,10 +171,7 @@ public class HeliMovement : MonoBehaviour
 
             }
         }
-            if (SM.Score >= 15)
-        {
-            SceneManager.LoadScene(CutScene);
-        }
+        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
