@@ -16,6 +16,7 @@ public class HousesMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Får husen att röra sig lite
         MyRigidBody.velocity = new Vector2(-3, 0);
     }
 }

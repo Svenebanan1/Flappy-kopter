@@ -14,6 +14,7 @@ public class SkyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Gör så att himlen bakom husen rör sig lite grann
         MyRigidBody.velocity = new Vector2(-2, 0);
     }
 }

@@ -11,6 +11,7 @@ public class ljud : MonoBehaviour
 
     private void Start()
     {
+        //Spela helikopter ljud när man startar scenen
         helikopter.Play();
     }
 
@@ -19,7 +20,7 @@ public class ljud : MonoBehaviour
     {
 
        
-
+        //Hoppljud när man trycker space
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
             jump.Play();
