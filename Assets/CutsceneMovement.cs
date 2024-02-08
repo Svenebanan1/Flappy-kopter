@@ -7,17 +7,24 @@ public class CutsceneMovement : MonoBehaviour
 
     [SerializeField] public AudioSource kidsCheeringSound;
 
-    Rigidbody2D CutScene;
+    Rigidbody2D CutSceneRigidBody;
     // Start is called before the first frame update
     void Start()
     {
-        CutScene = GetComponent<Rigidbody2D>();
+        CutSceneRigidBody = GetComponent<Rigidbody2D>();
         kidsCheeringSound.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        CutScene.velocity = new Vector2(2, 0);
+        
+        Invoke("MoveHelicopter", 1.25f);
+    }
+
+    void MoveHelicopter()
+    {
+        CutSceneRigidBody.velocity = new Vector2(0.04f, 0);
+        
     }
 }
