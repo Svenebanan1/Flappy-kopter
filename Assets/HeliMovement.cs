@@ -12,23 +12,24 @@ public class HeliMovement : MonoBehaviour
 {
     [SerializeField]
     GameObject DeathObject;
+    //LJUD/MUSIK FILER
     [SerializeField] public AudioSource bakgrundsMusik;
     [SerializeField] public AudioSource helikopterLjud;
     [SerializeField] public AudioSource jump;
     [SerializeField] public AudioSource explosion;
 
     public int MenuScene;
-
     public int CutScene;
 
     Rigidbody2D myRigidBody2D;
 
     public static bool GameIsPaused = false;
 
-    public bool death = false;
+    public bool IsDead = false;
 
     public GameObject DeathSceneUI;
 
+    
     float quitTimer = 0;
     float quitTimer2 = 0;
 
@@ -70,7 +71,7 @@ public class HeliMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (death == false) 
+            if (IsDead == false) 
             {
                 jump.Play();
             }
@@ -122,13 +123,16 @@ public class HeliMovement : MonoBehaviour
         //Om man hamnar av skärmen så dör man
         if(transform.position.y <= -10)
         {
+            IsDead = true;
             Explotion.Play("explotion");
             explosion.Play();
             helikopterLjud.Stop();
             bakgrundsMusik.Stop();
-            Invoke("GameOver", 0.5f);
             myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+            Invoke("GameOver", 0.5f);
         }
+        
+        
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -185,8 +189,9 @@ public class HeliMovement : MonoBehaviour
         explosion.Play();
         helikopterLjud.Stop();
         bakgrundsMusik.Stop();
-        Invoke("GameOver", 0.5f);
         myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+        Invoke("GameOver", 0.5f);
+        
 
 
     }
@@ -195,7 +200,7 @@ public class HeliMovement : MonoBehaviour
     {
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        IsDead = true;
     }
 }   
 

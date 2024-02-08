@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8217861042095118282}
   - component: {fileID: 1763932543366671588}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Uppertower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 7713881266319933076}
   - component: {fileID: 5527654175896643537}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: BelowTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 8988198834821639945}
   - component: {fileID: 1643669092285591285}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Towers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

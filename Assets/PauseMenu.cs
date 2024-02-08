@@ -5,46 +5,65 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField]
+    GameObject DeathObject;
+
     public static bool GameIsPaused = false;
+
+    public static bool IsDead = false;
 
     public GameObject pauseMenuUI;
 
     public GameObject OptionsMenuUI;
 
+    public GameObject DeathSceneUI;
+
     public int MenuScene;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (IsDead == false)
         {
-            if (GameIsPaused)
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Resume();
-                OptionsResume();
-            }
-            else
-            {
-                Pause();
+                if (GameIsPaused)
+                {
+                    Resume();
+                    OptionsResume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
+        
+        if(IsDead == true)
+        {
+            GameOver();
+        }
+
     }
 
     public void Resume()
     {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+            pauseMenuUI.SetActive(false);
+            Time.timeScale = 1f;
+            GameIsPaused = false;
     }
     public void OptionsResume()
     {
-        OptionsMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+       OptionsMenuUI.SetActive(false);
+       Time.timeScale = 1f;
+       GameIsPaused = false;
     }
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
+        if (IsDead == false)
+        {
+            pauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
     }
 
     public void LoadMenu()
@@ -59,5 +78,10 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
-
+    void GameOver()
+    {
+        DeathSceneUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
 }

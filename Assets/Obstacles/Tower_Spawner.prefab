@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4377499558310690332}
   - component: {fileID: 1580373878290638878}
   m_Layer: 0
-  m_Name: Obstacle_Spawner
+  m_Name: Tower_Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
