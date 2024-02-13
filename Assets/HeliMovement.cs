@@ -10,8 +10,14 @@ using UnityEngine.UIElements;
  
 public class HeliMovement : MonoBehaviour
 {
+    public GameObject OptionsMenuUI;
+
     [SerializeField]
     GameObject DeathObject;
+    
+    public GameObject DeathSceneUI;
+    public GameObject pauseMenuUI;
+
     //LJUD/MUSIK FILER
     [SerializeField] public AudioSource bakgrundsMusik;
     [SerializeField] public AudioSource helikopterLjud;
@@ -20,20 +26,17 @@ public class HeliMovement : MonoBehaviour
 
     public int MenuScene;
     public int CutScene;
-
+    
     Rigidbody2D myRigidBody2D;
 
     public static bool GameIsPaused = false;
 
     public bool IsDead = false;
 
-    public GameObject DeathSceneUI;
-
+    private bool dubblepoints = false;
     
     float quitTimer = 0;
     float quitTimer2 = 0;
-
-    private bool dubblepoints = false;
 
     int hp = 1;
 
@@ -50,10 +53,11 @@ public class HeliMovement : MonoBehaviour
         SM = FindObjectOfType<GameStatus>();
         Explotion = GetComponent<Animator>();
     }
-
+        
+    //ANVÄNDS ALDRIG
     public void TakeDamage()
     {
-        //Används inte
+        
         hp -= 1;
         if (hp == 0)
         {
@@ -69,6 +73,22 @@ public class HeliMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (IsDead == false)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (GameIsPaused)
+                {
+                    Resume();
+                    OptionsResume();
+                }
+                else
+                {
+                    Pause();
+                }
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (IsDead == false) 
@@ -95,41 +115,38 @@ public class HeliMovement : MonoBehaviour
 
             gameObject.transform.localScale = new Vector2(1, 1);
         }
-        //Stänga av dubbel poäng power-up efter en stund
+        //Stänga av dubbel poäng power-up efter 10 sekunder
         if (quitTimer2 > 0)
         {
            dubblepoints = true; 
            quitTimer2 -= Time.deltaTime;
-
-            
-
-
         }
        
         
         if (quitTimer2 <= 0)
         {
-           
-
             dubblepoints = false;
-
-
         }
         //pausa hoppljud när man dör
         if (Time.timeScale == 0f)
         {
             jump.Stop();
         }
-        //Om man hamnar av skärmen så dör man
-        if(transform.position.y <= -10)
+        if(IsDead == true)
         {
-            IsDead = true;
+            pauseMenuUI.SetActive(false);
             Explotion.Play("explotion");
             explosion.Play();
             helikopterLjud.Stop();
             bakgrundsMusik.Stop();
             myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
             Invoke("GameOver", 0.5f);
+        }
+        //Om man hamnar av skärmen så dör man
+        if(transform.position.y <= -10)
+        {
+            IsDead = true;
+            
         }
         
         
@@ -166,7 +183,7 @@ public class HeliMovement : MonoBehaviour
             if (hitmat != null)
             {
                 hitmat.TakeDamage();
-                SM.Score += 1;
+                SM.CollectedFood += 1;
 
             }
             
@@ -176,7 +193,7 @@ public class HeliMovement : MonoBehaviour
             if (hitmat != null)
             {
                 hitmat.TakeDamage();
-                SM.Score += 0;
+                SM.CollectedFood += 0;
 
             }
         }
@@ -184,23 +201,45 @@ public class HeliMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        Explotion.Play("explotion");
-        explosion.Play();
-        helikopterLjud.Stop();
-        bakgrundsMusik.Stop();
-        myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
-        Invoke("GameOver", 0.5f);
-        
-
-
+        IsDead = true;
     }
 
     void GameOver()
     {
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
-        IsDead = true;
+        
+    }
+    public void Resume()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+    public void OptionsResume()
+    {
+        OptionsMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+    void Pause()
+    {
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(MenuScene);
+    }
+
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
+        Application.Quit();
     }
 }   
 

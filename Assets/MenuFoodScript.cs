@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class CollectedFood : MonoBehaviour
 {
-    public TMP_Text scoreText;
+    public TMP_Text CollectedFoodText;
     private void Update()
     {
         GameObject go = GameObject.Find("GameStatus");
@@ -20,7 +20,7 @@ public class CollectedFood : MonoBehaviour
 
         GameStatus gs = go.GetComponent<GameStatus>();
 
-        scoreText.text = "Collected Food: " + gs.HighScore;
+        CollectedFoodText.text = "Collected Food: " + gs.MenuFood;
     }
     
 }

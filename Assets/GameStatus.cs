@@ -7,8 +7,8 @@ public class GameStatus : MonoBehaviour
 {
     public static GameStatus instance;
 
-    public int Score;
-    public int HighScore;
+    public int CollectedFood;
+    public int MenuFood;
 
     private void Awake()
     {
@@ -18,35 +18,37 @@ public class GameStatus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        HighScore = PlayerPrefs.GetInt("Score", 0);
-        HighScore = PlayerPrefs.GetInt("HighScore", 0);
+        MenuFood = PlayerPrefs.GetInt("CollectedFood", 0);
+        MenuFood = PlayerPrefs.GetInt("MenuFood", 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private void OnDestroy()
     {
-        PlayerPrefs.SetInt("Score", Score);
-        PlayerPrefs.SetInt("HighScore", HighScore);
+        PlayerPrefs.SetInt("Score", CollectedFood);
+        PlayerPrefs.SetInt("MenuFood", MenuFood);
     }
 
     public void AddScore()
     {
-        Score++;
+        CollectedFood++;
         updateHighScore();
     }
 
     public void updateHighScore()
     {
-        HighScore++;
+        MenuFood+= 25;
     }
+
+
+   
 
     public void ResetScore()
     {
-        Score = 0;
+        CollectedFood = 0;
     }
 }
