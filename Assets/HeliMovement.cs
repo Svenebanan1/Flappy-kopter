@@ -13,7 +13,10 @@ public class HeliMovement : MonoBehaviour
     public GameObject OptionsMenuUI;
 
     [SerializeField]
-    GameObject DeathObject;
+    GameObject Tower;
+
+    [SerializeField]
+    GameObject DeathBarrier;
     
     public GameObject DeathSceneUI;
     public GameObject pauseMenuUI;
@@ -57,7 +60,6 @@ public class HeliMovement : MonoBehaviour
     //ANVÄNDS ALDRIG
     public void TakeDamage()
     {
-        
         hp -= 1;
         if (hp == 0)
         {
@@ -94,16 +96,13 @@ public class HeliMovement : MonoBehaviour
             if (IsDead == false) 
             {
                 JumpAudio.Play();
-                
             }
             myRigidBody2D.velocity = new Vector2(0, 10);
-
         }
         if (quitTimer > 0)
         {
             quitTimer -= Time.deltaTime;
             gameObject.transform.localScale = new Vector2(0.5f, 0.5f);
-
         }
         else
         {
@@ -112,7 +111,6 @@ public class HeliMovement : MonoBehaviour
 
         if (quitTimer == 0)
         {
-
             gameObject.transform.localScale = new Vector2(1, 1);
         }
         //Stänga av dubbel poäng power-up efter 10 sekunder
@@ -127,27 +125,11 @@ public class HeliMovement : MonoBehaviour
         {
             dubblepoints = false;
         }
-        //pausa hoppljud när man dör
-        if (Time.timeScale == 0f)
-        {
-            JumpAudio.Stop();
-        }
-        //Om man hamnar av skärmen så dör man
-        if(transform.position.y <= -10)
-        {
-            IsDead = true;
-            
-        } 
         
         if(IsDead == true)
         {
-            pauseMenuUI.SetActive(false);
-            ExplotionAnimation.Play("explotion");
-            ExplosionAudio.Play();
-            HelikopterAudio.Stop();
-            BackgroundMusic.Stop();
+            Invoke("GameOver", 0.55f);
             myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
-            Invoke("GameOver", 0.6f);
         }
        
         
@@ -203,11 +185,18 @@ public class HeliMovement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        pauseMenuUI.SetActive(false);
+        JumpAudio.Stop();
+        ExplosionAudio.Play();
+        ExplotionAnimation.Play("explotion");
         IsDead = true;
+
     }
 
     void GameOver()
-    {
+    {   
+        HelikopterAudio.Stop();
+        BackgroundMusic.Stop();
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
     }

@@ -2272,6 +2272,83 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087403941}
   m_CullTransparentMesh: 1
+--- !u!1 &1183550141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183550144}
+  - component: {fileID: 1183550145}
+  m_Layer: 0
+  m_Name: DeathBarrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183550144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183550141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -5.5, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1183550145
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183550141}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1194381569
 GameObject:
   m_ObjectHideFlags: 0
@@ -4034,7 +4111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionsMenuUI: {fileID: 1917976285}
-  DeathObject: {fileID: 8407179589158544444, guid: 46f6165a162300a419eb797c5dbb2ea1, type: 3}
+  Tower: {fileID: 8407179589158544444, guid: 46f6165a162300a419eb797c5dbb2ea1, type: 3}
+  DeathBarrier: {fileID: 1183550141}
   DeathSceneUI: {fileID: 287385485}
   pauseMenuUI: {fileID: 1275935925}
   BackgroundMusic: {fileID: 1978528422}
@@ -4214,7 +4292,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 388523152218962539, guid: 9f5a021e4c941b1479a20ebd66015c5a, type: 2}
   m_audioClip: {fileID: 8300000, guid: b6d7a12a9b4b93d41931696c4a973315, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.301
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4843,3 +4921,4 @@ SceneRoots:
   - {fileID: 855786974}
   - {fileID: 2047644640}
   - {fileID: 1525922748}
+  - {fileID: 1183550144}
