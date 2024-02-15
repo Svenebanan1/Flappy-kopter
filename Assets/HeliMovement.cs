@@ -19,10 +19,10 @@ public class HeliMovement : MonoBehaviour
     public GameObject pauseMenuUI;
 
     //LJUD/MUSIK FILER
-    [SerializeField] public AudioSource bakgrundsMusik;
-    [SerializeField] public AudioSource helikopterLjud;
-    [SerializeField] public AudioSource jump;
-    [SerializeField] public AudioSource explosion;
+    [SerializeField] public AudioSource BackgroundMusic;
+    [SerializeField] public AudioSource HelikopterAudio;
+    [SerializeField] public AudioSource JumpAudio;
+    [SerializeField] public AudioSource ExplosionAudio;
 
     public int MenuScene;
     public int CutScene;
@@ -43,15 +43,15 @@ public class HeliMovement : MonoBehaviour
     
 
     GameStatus SM;
-    Animator Explotion;
+    Animator ExplotionAnimation;
     // Start is called before the first frame update
     void Start()
     {
-        helikopterLjud.Play();
-        bakgrundsMusik.Play();
+        HelikopterAudio.Play();
+        BackgroundMusic.Play();
         myRigidBody2D = GetComponent<Rigidbody2D>();
         SM = FindObjectOfType<GameStatus>();
-        Explotion = GetComponent<Animator>();
+        ExplotionAnimation = GetComponent<Animator>();
     }
         
     //ANVÄNDS ALDRIG
@@ -93,12 +93,12 @@ public class HeliMovement : MonoBehaviour
         {
             if (IsDead == false) 
             {
-                jump.Play();
+                JumpAudio.Play();
+                
             }
             myRigidBody2D.velocity = new Vector2(0, 10);
 
         }
-
         if (quitTimer > 0)
         {
             quitTimer -= Time.deltaTime;
@@ -130,24 +130,26 @@ public class HeliMovement : MonoBehaviour
         //pausa hoppljud när man dör
         if (Time.timeScale == 0f)
         {
-            jump.Stop();
-        }
-        if(IsDead == true)
-        {
-            pauseMenuUI.SetActive(false);
-            Explotion.Play("explotion");
-            explosion.Play();
-            helikopterLjud.Stop();
-            bakgrundsMusik.Stop();
-            myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
-            Invoke("GameOver", 0.5f);
+            JumpAudio.Stop();
         }
         //Om man hamnar av skärmen så dör man
         if(transform.position.y <= -10)
         {
             IsDead = true;
             
+        } 
+        
+        if(IsDead == true)
+        {
+            pauseMenuUI.SetActive(false);
+            ExplotionAnimation.Play("explotion");
+            ExplosionAudio.Play();
+            HelikopterAudio.Stop();
+            BackgroundMusic.Stop();
+            myRigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY;
+            Invoke("GameOver", 0.6f);
         }
+       
         
         
     }
@@ -208,7 +210,6 @@ public class HeliMovement : MonoBehaviour
     {
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
-        
     }
     public void Resume()
     {
