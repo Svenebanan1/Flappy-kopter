@@ -9,7 +9,8 @@ public class GameStatus : MonoBehaviour
 
     public int CollectedFood;
     public int MenuFood;
-
+    public int Stars;
+    public int DeliveredFood;
     private void Awake()
     {
         instance = this;
@@ -20,6 +21,8 @@ public class GameStatus : MonoBehaviour
     {
         MenuFood = PlayerPrefs.GetInt("CollectedFood", 0);
         MenuFood = PlayerPrefs.GetInt("MenuFood", 0);
+        Stars = PlayerPrefs.GetInt("Stars", 0);
+        DeliveredFood = PlayerPrefs.GetInt("DeliveredFood", 0);
     }
 
     // Update is called once per frame
@@ -31,6 +34,8 @@ public class GameStatus : MonoBehaviour
     {
         PlayerPrefs.SetInt("Score", CollectedFood);
         PlayerPrefs.SetInt("MenuFood", MenuFood);
+        PlayerPrefs.SetInt("Stars", Stars);
+        PlayerPrefs.SetInt("DeliveredFood", DeliveredFood);
     }
 
     public void AddScore()
@@ -43,9 +48,6 @@ public class GameStatus : MonoBehaviour
     {
         MenuFood+= 25;
     }
-
-
-   
 
     public void ResetScore()
     {

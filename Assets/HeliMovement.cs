@@ -125,7 +125,7 @@ public class HeliMovement : MonoBehaviour
         {
             dubblepoints = false;
         }
-        
+        //If you die
         if(IsDead == true)
         {
             Invoke("GameOver", 0.55f);
@@ -153,7 +153,7 @@ public class HeliMovement : MonoBehaviour
             hitpowerup2.TakeDamage();
             quitTimer2 = 10;
         }
-        //Collect Food script
+        //When You Hit Food
         GameObject otherGameObject1 = collision.gameObject;
         mat hitmat = otherGameObject1.GetComponent<mat>();
         if (hitmat != null)
@@ -162,6 +162,7 @@ public class HeliMovement : MonoBehaviour
             GameStatus.instance.AddScore();
 
         }
+        //If you have hit the double points power-up
         if (dubblepoints == true)
         {
             if (hitmat != null)
@@ -172,6 +173,7 @@ public class HeliMovement : MonoBehaviour
             }
             
         }
+        //If you havwn't hit a double points power-up or the timer is up
         if (dubblepoints == false)
         {
             if (hitmat != null)
@@ -183,6 +185,7 @@ public class HeliMovement : MonoBehaviour
         }
         
     }
+    //When you hit an object
     private void OnCollisionEnter2D(Collision2D collision)
     {
         pauseMenuUI.SetActive(false);
@@ -192,7 +195,7 @@ public class HeliMovement : MonoBehaviour
         IsDead = true;
 
     }
-
+    //if the bool for when you die is true this happens
     void GameOver()
     {   
         HelikopterAudio.Stop();
@@ -200,32 +203,35 @@ public class HeliMovement : MonoBehaviour
         DeathSceneUI.SetActive(true);
         Time.timeScale = 0f;
     }
+    //Unpause The Game
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
+    //open options menu
     public void OptionsResume()
     {
         OptionsMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
+    //pause the game
     void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
-
+    //Load menu scene
     public void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(MenuScene);
     }
 
-
+    //close the game
     public void QuitGame()
     {
         Debug.Log("Quitting game...");
