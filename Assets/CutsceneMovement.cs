@@ -10,12 +10,16 @@ public class CutsceneMovement : MonoBehaviour
     public GameObject CutSceneChildren;
     [SerializeField] public AudioSource kidsCheeringSound;
 
+    public Animator HelikopterCutScene;
+
     Rigidbody2D CutSceneRigidBody;
     // Start is called before the first frame update
     void Start()
     {
+        HelikopterCutScene = GetComponent<Animator>();
         CutSceneRigidBody = GetComponent<Rigidbody2D>();
         kidsCheeringSound.Play();
+        
     }
 
     // Update is called once per frame
@@ -28,7 +32,7 @@ public class CutsceneMovement : MonoBehaviour
     void MoveHelicopter()
     {
         CutSceneRigidBody.velocity = new Vector2(0.04f, 0);
-        
+        HelikopterCutScene.Play("Cutscene");
     }
 
     void Continue()

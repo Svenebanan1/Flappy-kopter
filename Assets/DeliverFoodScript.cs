@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class DeliverFoodScript : MonoBehaviour
 {
-    public bool IfButtonClicked;
-
     public GameObject MenuCanvas;
     public GameObject CutSceneAnimation;
     public GameObject CutSceneBackground;
@@ -46,10 +44,7 @@ public class DeliverFoodScript : MonoBehaviour
         DeliveredFood.text = "Delivered Food: " + gs.DeliveredFood;
         AmountStars.text = "Stars: " + gs.Stars;
 
-        if (IfButtonClicked == true)
-        {
-            Invoke("LoadCutScene", 0.5f);
-        }
+        
 
     }
     //If you hit the confirm button this happens \/
@@ -61,15 +56,14 @@ public class DeliverFoodScript : MonoBehaviour
         //Script for when you click button and have enough
         if (gs.MenuFood >= 25 && amountselected >= 25 && amountselected < gs.MenuFood)
         {
-            //Adds to delivered food by how much you selected
+            //Adds to delivered food, how much you selected
             gs.DeliveredFood += amountselected;
             gs.MenuFood -= amountselected;
             if (gs.DeliveredFood % 25 >= 0 || gs.DeliveredFood % 25 < 25)
             {
                 gs.Stars++;
-                
             }
-            IfButtonClicked = true;
+            LoadCutScene();
         }
         //Script for when you click confirm and have enough + If you try to select more than you have
         else if (gs.MenuFood >= 25 && amountselected >= 25 && amountselected >= gs.MenuFood)
@@ -80,7 +74,7 @@ public class DeliverFoodScript : MonoBehaviour
             {
                 gs.Stars++;
             }
-            IfButtonClicked = true;
+            LoadCutScene();
         }
         //if You don't have 25 food
         else if (gs.MenuFood < 25)
@@ -98,18 +92,12 @@ public class DeliverFoodScript : MonoBehaviour
         AmountText.text = AmountSelected.ToString();
         amountselected = (int)AmountSelected;
     }
-
     public void LoadCutScene()
     {
         MenuCanvas.SetActive(false);
         CutSceneAnimation.SetActive(true);
         CutSceneBackground.SetActive(true);
         DeliverFoodPanel.SetActive(false);
-        IfButtonClicked = false;
     }
 
-    public void OpenDeliverFoodPanel()
-    {
-        DeliverFoodPanel.SetActive(true);
-    }
 }
