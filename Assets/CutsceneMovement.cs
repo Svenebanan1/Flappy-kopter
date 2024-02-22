@@ -6,38 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class CutsceneMovement : MonoBehaviour
 {
-    public GameObject CutSceneAnimation;
-    public GameObject CutSceneChildren;
     [SerializeField] public AudioSource kidsCheeringSound;
-
-    public Animator HelikopterCutScene;
 
     Rigidbody2D CutSceneRigidBody;
     // Start is called before the first frame update
     void Start()
     {
-        HelikopterCutScene = GetComponent<Animator>();
         CutSceneRigidBody = GetComponent<Rigidbody2D>();
         kidsCheeringSound.Play();
-        
+        Invoke("MoveHelicopter", 1.25f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Invoke("MoveHelicopter", 1.25f);
-        Invoke("Continue", 3.15f);
+        
     }
 
     void MoveHelicopter()
     {
         CutSceneRigidBody.velocity = new Vector2(0.04f, 0);
-        HelikopterCutScene.Play("Cutscene");
-    }
-
-    void Continue()
-    {
-        CutSceneAnimation.SetActive(false);
-        CutSceneChildren.SetActive(true);
     }
 }

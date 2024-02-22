@@ -2816,7 +2816,6 @@ RectTransform:
   - {fileID: 1578932236}
   - {fileID: 260798236}
   - {fileID: 1194381570}
-  - {fileID: 1917976286}
   m_Father: {fileID: 2080870781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3064,6 +3063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectedFood: 0
   MenuFood: 0
+  Stars: 0
+  DeliveredFood: 0
 --- !u!224 &1525922748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3913,7 +3914,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917976285}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.51745, y: 0.51745, z: 0.51745}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3924,7 +3925,7 @@ RectTransform:
   - {fileID: 1087403942}
   - {fileID: 2121701913}
   - {fileID: 1647269257}
-  m_Father: {fileID: 1275935929}
+  m_Father: {fileID: 2080870781}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4798,6 +4799,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1275935929}
+  - {fileID: 1917976286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

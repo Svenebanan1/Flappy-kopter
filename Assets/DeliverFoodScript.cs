@@ -5,17 +5,18 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
-
+using JetBrains.Annotations;
+using UnityEditor;
 
 public class DeliverFoodScript : MonoBehaviour
 {
+    public GameObject CutSceneChildren;
     public GameObject MenuCanvas;
     public GameObject CutSceneAnimation;
     public GameObject CutSceneBackground;
     public GameObject ConfirmingButton;
     public GameObject DeliverFoodPanel;
     //Variable for the AmountStoredText text
-    public int MenuFood;
     int amountselected;
     public int CutsceneScene;
     //How much food is selected with the slider
@@ -98,6 +99,19 @@ public class DeliverFoodScript : MonoBehaviour
         CutSceneAnimation.SetActive(true);
         CutSceneBackground.SetActive(true);
         DeliverFoodPanel.SetActive(false);
+        Invoke("KidsScene", 3.15f);
     }
-
+    void KidsScene()
+    {
+        CutSceneAnimation.SetActive(false);
+        CutSceneChildren.SetActive(true);
+        CutSceneBackground.SetActive(false);
+        Invoke("BackToMenu", 3.5f);
+    }
+    void BackToMenu()
+    {
+        CutSceneChildren.SetActive(false);
+        MenuCanvas.SetActive(true);
+        
+    }
 }

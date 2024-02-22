@@ -46,7 +46,7 @@ public class GameStatus : MonoBehaviour
 
     public void updateHighScore()
     {
-        MenuFood+= 25;
+        MenuFood++;
     }
 
     public void ResetScore()

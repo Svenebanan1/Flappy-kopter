@@ -137,6 +137,9 @@ public class HeliMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject go = GameObject.Find("GameStatus");
+        GameStatus gs = go.GetComponent<GameStatus>();
+
         //Power-UP #1 Halv i storlek
         GameObject otherGameObject = collision.gameObject;
         powerup hitpowerup = otherGameObject.GetComponent<powerup>();
@@ -169,18 +172,16 @@ public class HeliMovement : MonoBehaviour
             {
                 hitmat.TakeDamage();
                 SM.CollectedFood += 1;
-
             }
             
         }
-        //If you havwn't hit a double points power-up or the timer is up
+        //If you haven't hit a double points power-up or the timer is up
         if (dubblepoints == false)
         {
             if (hitmat != null)
             {
                 hitmat.TakeDamage();
                 SM.CollectedFood += 0;
-
             }
         }
         
