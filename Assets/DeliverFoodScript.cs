@@ -21,7 +21,7 @@ public class DeliverFoodScript : MonoBehaviour
     public int CutsceneScene;
     //How much food is selected with the slider
     public TMP_Text AmountStored;
-    public TMP_Text AmountStars;
+    public TMP_Text AmountFamiliesSaved;
     public TextMeshProUGUI AmountText;
     public TMP_Text DeliveredFood;
     
@@ -43,7 +43,7 @@ public class DeliverFoodScript : MonoBehaviour
         }
         AmountStored.text = "Current Amount: " + gs.MenuFood;
         DeliveredFood.text = "Delivered Food: " + gs.DeliveredFood;
-        AmountStars.text = "Stars: " + gs.Stars;
+        AmountFamiliesSaved.text = "SavedFamilies: " + gs.SavedFamilies;
 
         
 
@@ -62,7 +62,7 @@ public class DeliverFoodScript : MonoBehaviour
             gs.MenuFood -= amountselected;
             if (gs.DeliveredFood % 25 >= 0 || gs.DeliveredFood % 25 < 25)
             {
-                gs.Stars++;
+                gs.SavedFamilies++;
             }
             LoadCutScene();
         }
@@ -73,7 +73,7 @@ public class DeliverFoodScript : MonoBehaviour
             gs.MenuFood -= gs.MenuFood;
             if (gs.DeliveredFood % 25 >= 0 || gs.DeliveredFood % 25 < 25)
             {
-                gs.Stars++;
+                gs.SavedFamilies++;
             }
             LoadCutScene();
         }

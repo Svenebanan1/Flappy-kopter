@@ -9,7 +9,7 @@ public class GameStatus : MonoBehaviour
 
     public int CollectedFood;
     public int MenuFood;
-    public int Stars;
+    public int SavedFamilies;
     public int DeliveredFood;
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class GameStatus : MonoBehaviour
     {
         MenuFood = PlayerPrefs.GetInt("CollectedFood", 0);
         MenuFood = PlayerPrefs.GetInt("MenuFood", 0);
-        Stars = PlayerPrefs.GetInt("Stars", 0);
+        SavedFamilies = PlayerPrefs.GetInt("SavedFamilies", 0);
         DeliveredFood = PlayerPrefs.GetInt("DeliveredFood", 0);
     }
 
@@ -34,7 +34,7 @@ public class GameStatus : MonoBehaviour
     {
         PlayerPrefs.SetInt("Score", CollectedFood);
         PlayerPrefs.SetInt("MenuFood", MenuFood);
-        PlayerPrefs.SetInt("Stars", Stars);
+        PlayerPrefs.SetInt("SavedFamilies", SavedFamilies);
         PlayerPrefs.SetInt("DeliveredFood", DeliveredFood);
     }
 

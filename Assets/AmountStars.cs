@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AmountStars : MonoBehaviour
 {
-    public TMP_Text StarsText;
+    public TMP_Text SavedFamiliesText;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,6 @@ public class AmountStars : MonoBehaviour
 
         GameStatus gs = go.GetComponent<GameStatus>();
 
-        StarsText.text = "Stars: " + gs.Stars;
+        SavedFamiliesText.text = "SavedFamilies: " + gs.SavedFamilies;
     }
 }
